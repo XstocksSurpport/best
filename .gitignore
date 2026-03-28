@@ -6,3 +6,4 @@ dist
 cache-hardhat
 artifacts
 typechain-types
+.vercel
