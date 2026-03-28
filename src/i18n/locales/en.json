@@ -13,7 +13,7 @@
     "deadline": "Presale Deadline",
     "amount": "Presale Amount (USDT)",
     "receive": "Tokens to Receive",
-    "minAmount": "Minimum 0 USDT",
+    "minAmount": "Minimum 1000 USDT",
     "connectWallet": "Connect wallet to participate",
     "participate": "Participate in Presale",
     "price": "Presale Price",
@@ -97,7 +97,7 @@
     "chain": "Chain"
   },
   "errors": {
-    "minAmount": "Enter a valid amount (minimum 0 USDT)",
+    "minAmount": "Enter a valid amount (minimum 1000 USDT)",
     "approve": "Please approve USDT first",
     "network": "Please connect to BNB Chain",
     "presaleNotConfigured": "Presale treasury address is invalid."

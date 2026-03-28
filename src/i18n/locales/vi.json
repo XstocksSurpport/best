@@ -13,7 +13,7 @@
     "deadline": "Hạn chót bán trước",
     "amount": "Số lượng USDT",
     "receive": "Số token nhận được",
-    "minAmount": "Tối thiểu 0 USDT",
+    "minAmount": "Tối thiểu 1000 USDT",
     "connectWallet": "Kết nối ví để tham gia",
     "participate": "Tham gia bán trước",
     "price": "Giá bán trước",
@@ -97,7 +97,7 @@
     "chain": "Mạng"
   },
   "errors": {
-    "minAmount": "Nhập số tiền hợp lệ (tối thiểu 0 USDT)",
+    "minAmount": "Nhập số tiền hợp lệ (tối thiểu 1000 USDT)",
     "approve": "Vui lòng phê duyệt USDT trước",
     "network": "Vui lòng kết nối BNB Chain",
     "presaleNotConfigured": "Địa chỉ treasury presale không hợp lệ."

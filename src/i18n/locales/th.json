@@ -13,7 +13,7 @@
     "deadline": "วันปิดการขายล่วงหน้า",
     "amount": "จำนวน USDT",
     "receive": "จำนวนโทเคนที่จะได้รับ",
-    "minAmount": "ขั้นต่ำ 0 USDT",
+    "minAmount": "ขั้นต่ำ 1000 USDT",
     "connectWallet": "เชื่อมต่อกระเป๋าเพื่อเข้าร่วม",
     "participate": "เข้าร่วมการขายล่วงหน้า",
     "price": "ราคาขายล่วงหน้า",
@@ -97,7 +97,7 @@
     "chain": "เครือข่าย"
   },
   "errors": {
-    "minAmount": "กรุณากรอกจำนวนที่ถูกต้อง (ขั้นต่ำ 0 USDT)",
+    "minAmount": "กรุณากรอกจำนวนที่ถูกต้อง (ขั้นต่ำ 1000 USDT)",
     "approve": "กรุณาอนุมัติ USDT ก่อน",
     "network": "กรุณาเชื่อมต่อ BNB Chain",
     "presaleNotConfigured": "ที่อยู่ treasury ของพรีเซลไม่ถูกต้อง"

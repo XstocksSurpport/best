@@ -7,7 +7,7 @@ import type { Language } from './i18n'
 import { languages } from './i18n'
 
 const TOKEN_RATE = 100 // 1 USDT = 100 BEST
-const MIN_USDT = 0
+const MIN_USDT = 1000
 const USDT_DECIMALS = 18
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
   const parsedAmount = trimmedAmount === '' ? 0 : parseFloat(presaleAmount)
   const amountNum = Number.isFinite(parsedAmount) ? parsedAmount : 0
   const isValidAmount =
-    (trimmedAmount === '' || Number.isFinite(parsedAmount)) && amountNum >= MIN_USDT && amountNum >= 0
+    (trimmedAmount === '' || Number.isFinite(parsedAmount)) && amountNum >= MIN_USDT
   const tokenAmount = isValidAmount ? Math.floor(amountNum * TOKEN_RATE) : 0
   const presaleReady = isPresaleConfigured()
 
