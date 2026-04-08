@@ -13,6 +13,8 @@
     "deadline": "预售截止时间",
     "amount": "预售金额 (USDT)",
     "receive": "获得代币数量",
+    "airdropPoints": "获得空投积分数量",
+    "airdropPointsUnit": "分",
     "minAmount": "最低 288 USDT",
     "connectWallet": "连接钱包参与",
     "participate": "参与预售",

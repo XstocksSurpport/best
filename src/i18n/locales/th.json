@@ -13,6 +13,8 @@
     "deadline": "วันปิดการขายล่วงหน้า",
     "amount": "จำนวน USDT",
     "receive": "จำนวนโทเคนที่จะได้รับ",
+    "airdropPoints": "คะแนนแอร์ดรอปที่จะได้รับ",
+    "airdropPointsUnit": "คะแนน",
     "minAmount": "ขั้นต่ำ 288 USDT",
     "connectWallet": "เชื่อมต่อกระเป๋าเพื่อเข้าร่วม",
     "participate": "เข้าร่วมการขายล่วงหน้า",

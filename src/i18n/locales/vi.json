@@ -13,6 +13,8 @@
     "deadline": "Hạn chót bán trước",
     "amount": "Số lượng USDT",
     "receive": "Số token nhận được",
+    "airdropPoints": "Điểm airdrop nhận được",
+    "airdropPointsUnit": "điểm",
     "minAmount": "Tối thiểu 288 USDT",
     "connectWallet": "Kết nối ví để tham gia",
     "participate": "Tham gia bán trước",

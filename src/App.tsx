@@ -110,6 +110,8 @@ function App() {
   const isValidAmount =
     (trimmedAmount === '' || Number.isFinite(parsedAmount)) && amountNum >= MIN_USDT
   const tokenAmount = isValidAmount ? Math.floor(amountNum * TOKEN_RATE) : 0
+  /** 与代币数量同步：1 $BEST = 1 空投积分 */
+  const airdropPoints = tokenAmount
   const presaleReady = isPresaleConfigured()
 
   useEffect(() => {
@@ -320,6 +322,10 @@ function App() {
               <label>{t('presale.receive')}</label>
               <div className="receive-display">
                 {tokenAmount.toLocaleString()} $BEST
+              </div>
+              <label>{t('presale.airdropPoints')}</label>
+              <div className="receive-display">
+                {airdropPoints.toLocaleString()} {t('presale.airdropPointsUnit')}
               </div>
               {!presaleReady && <p className="error">{t('errors.presaleNotConfigured')}</p>}
               {presaleError && <p className="error">{presaleError}</p>}

@@ -13,6 +13,8 @@
     "deadline": "プレセール締切",
     "amount": "参加額 (USDT)",
     "receive": "受け取るトークン数",
+    "airdropPoints": "エアドロップポイント",
+    "airdropPointsUnit": "pt",
     "minAmount": "最低 288 USDT",
     "connectWallet": "ウォレットを接続して参加",
     "participate": "プレセールに参加",

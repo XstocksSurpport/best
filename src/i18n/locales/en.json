@@ -13,6 +13,8 @@
     "deadline": "Presale Deadline",
     "amount": "Presale Amount (USDT)",
     "receive": "Tokens to Receive",
+    "airdropPoints": "Airdrop points to receive",
+    "airdropPointsUnit": "pts",
     "minAmount": "Minimum 288 USDT",
     "connectWallet": "Connect wallet to participate",
     "participate": "Participate in Presale",
