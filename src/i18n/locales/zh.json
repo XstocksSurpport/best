@@ -13,7 +13,7 @@
     "deadline": "预售截止时间",
     "amount": "预售金额 (USDT)",
     "receive": "获得代币数量",
-    "minAmount": "最低 1000 USDT",
+    "minAmount": "最低 288 USDT",
     "connectWallet": "连接钱包参与",
     "participate": "参与预售",
     "price": "预售价格",
@@ -97,7 +97,7 @@
     "chain": "当前链"
   },
   "errors": {
-    "minAmount": "请输入有效金额（最低 1000 USDT）",
+    "minAmount": "请输入有效金额（最低 288 USDT）",
     "approve": "请先授权 USDT",
     "network": "请连接 BNB 链",
     "presaleNotConfigured": "预售收款地址配置无效。"

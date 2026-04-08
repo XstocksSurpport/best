@@ -7,7 +7,7 @@ import type { Language } from './i18n'
 import { languages } from './i18n'
 
 const TOKEN_RATE = 100 // 1 USDT = 100 BEST
-const MIN_USDT = 1000
+const MIN_USDT = 288
 const USDT_DECIMALS = 18
 
 function App() {
@@ -122,7 +122,7 @@ function App() {
     <div className="app">
       <header className="header">
         <a href="#" className="logo">
-          <img src="https://picui.ogmua.cn/s1/2026/03/18/69ba8f09ec56e.webp" alt="BEST" width={48} height={48} />
+          <img src="https://picui.ogmua.cn/s1/2026/04/08/69d5e8e0d02ff.webp" alt="BEST" width={48} height={48} />
           <div className="logo-text">
             <span className="logo-symbol">$BEST</span>
             <span className="logo-slogan">{t('meta.slogan')}</span>

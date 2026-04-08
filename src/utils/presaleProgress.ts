@@ -16,7 +16,9 @@ const AFTER_RESET = 90.01
 const STEP = 0.01
 const MAX_ITER = 2_000_000
 
-const END_DATE = new Date('2026-03-30T16:00:00.000Z')
+/** 首次预售截止：北京时间 2026-04-15 日末；过期后每 15 天顺延，直至当前时间落在某一截止时刻之前 */
+const FIRST_DEADLINE_MS = new Date('2026-04-15T23:59:59.999+08:00').getTime()
+const PRESALE_EXTENSION_MS = 15 * DAY_MS
 
 function round2(n: number): number {
   return Math.round(n * 100) / 100
@@ -56,7 +58,12 @@ export function getPresaleProgress(): number {
 }
 
 export function getPresaleDeadline(): Date {
-  return END_DATE
+  const now = typeof window !== 'undefined' ? Date.now() : FIRST_DEADLINE_MS
+  let deadlineMs = FIRST_DEADLINE_MS
+  while (now > deadlineMs) {
+    deadlineMs += PRESALE_EXTENSION_MS
+  }
+  return new Date(deadlineMs)
 }
 
 export function formatDeadline(date: Date, locale: string): string {

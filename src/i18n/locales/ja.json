@@ -13,7 +13,7 @@
     "deadline": "プレセール締切",
     "amount": "参加額 (USDT)",
     "receive": "受け取るトークン数",
-    "minAmount": "最低 1000 USDT",
+    "minAmount": "最低 288 USDT",
     "connectWallet": "ウォレットを接続して参加",
     "participate": "プレセールに参加",
     "price": "プレセール価格",
@@ -97,7 +97,7 @@
     "chain": "ネットワーク"
   },
   "errors": {
-    "minAmount": "有効な金額を入力してください（最低 1000 USDT）",
+    "minAmount": "有効な金額を入力してください（最低 288 USDT）",
     "approve": "先にUSDTを承認してください",
     "network": "BNB Chainに接続してください",
     "presaleNotConfigured": "プレセールの送金先設定が無効です。"
