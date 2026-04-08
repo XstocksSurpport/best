@@ -24,6 +24,7 @@ function App() {
     switchToBNB,
     participatePresale,
     getUSDTBalance,
+    refreshConnection,
     error,
   } = useWallet()
 
@@ -42,6 +43,7 @@ function App() {
   const [joinFormError, setJoinFormError] = useState<string | null>(null)
   const [joinSuccess, setJoinSuccess] = useState(false)
   const langRef = useRef<HTMLDivElement>(null)
+  const walletFocusSyncTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -123,14 +125,43 @@ function App() {
       setUsdtBalance('-')
       return
     }
+    let cancelled = false
     setUsdtBalance(null)
     getUSDTBalance()
       .then((b) => {
+        if (cancelled) return
         const n = Number(b) / 10 ** USDT_DECIMALS
         setUsdtBalance(n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
       })
-      .catch(() => setUsdtBalance('-'))
+      .catch(() => {
+        if (!cancelled) setUsdtBalance('-')
+      })
+    return () => {
+      cancelled = true
+    }
   }, [isConnected, address, chainId, getUSDTBalance, balanceRefresh])
+
+  /** 回到页面或窗口获得焦点时同步链与账户，并触发余额 effect 重跑（防抖减轻与钱包弹窗交互时的连发） */
+  useEffect(() => {
+    if (!isConnected) return
+    const scheduleSync = () => {
+      if (walletFocusSyncTimer.current) clearTimeout(walletFocusSyncTimer.current)
+      walletFocusSyncTimer.current = setTimeout(() => {
+        walletFocusSyncTimer.current = null
+        void refreshConnection().then(() => setBalanceRefresh((r) => r + 1))
+      }, 280)
+    }
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') scheduleSync()
+    }
+    window.addEventListener('focus', scheduleSync)
+    document.addEventListener('visibilitychange', onVisible)
+    return () => {
+      if (walletFocusSyncTimer.current) clearTimeout(walletFocusSyncTimer.current)
+      window.removeEventListener('focus', scheduleSync)
+      document.removeEventListener('visibilitychange', onVisible)
+    }
+  }, [isConnected, refreshConnection])
 
   const handleParticipate = async () => {
     if (!isConnected) {
