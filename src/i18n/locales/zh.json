@@ -84,6 +84,19 @@
     "goldSponsor": "金牌赞助商",
     "goldSponsors": "Binance · OKX · 非小号 (Feixiaohao)"
   },
+  "joinUs": {
+    "cta": "加入我们",
+    "title": "加入我们",
+    "surname": "姓",
+    "givenName": "名",
+    "contact": "联系方式",
+    "email": "邮箱",
+    "submit": "提交",
+    "close": "关闭",
+    "success": "提交成功，我们将尽快与您联系。",
+    "required": "请填写全部必填项。",
+    "invalidEmail": "请输入有效邮箱地址。"
+  },
   "wallet": {
     "connect": "连接钱包",
     "disconnect": "断开连接",

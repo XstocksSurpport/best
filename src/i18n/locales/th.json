@@ -84,6 +84,19 @@
     "goldSponsor": "ผู้สนับสนุนทอง",
     "goldSponsors": "Binance · OKX · Feixiaohao"
   },
+  "joinUs": {
+    "cta": "ร่วมกับเรา",
+    "title": "ร่วมกับเรา",
+    "surname": "นามสกุล",
+    "givenName": "ชื่อ",
+    "contact": "ช่องทางติดต่อ",
+    "email": "อีเมล",
+    "submit": "ส่ง",
+    "close": "ปิด",
+    "success": "ส่งเรียบร้อยแล้ว เราจะติดต่อกลับโดยเร็วที่สุด",
+    "required": "กรุณากรอกข้อมูลที่จำเป็นทั้งหมด",
+    "invalidEmail": "กรุณากรอกอีเมลที่ถูกต้อง"
+  },
   "wallet": {
     "connect": "เชื่อมต่อกระเป๋า",
     "disconnect": "ตัดการเชื่อมต่อ",

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useWallet } from './hooks/useWallet'
 import { getPresaleProgress, getPresaleDeadline, formatDeadline } from './utils/presaleProgress'
@@ -34,6 +34,13 @@ function App() {
   const [langOpen, setLangOpen] = useState(false)
   const [usdtBalance, setUsdtBalance] = useState<string | null>(null)
   const [balanceRefresh, setBalanceRefresh] = useState(0)
+  const [joinOpen, setJoinOpen] = useState(false)
+  const [joinSurname, setJoinSurname] = useState('')
+  const [joinGivenName, setJoinGivenName] = useState('')
+  const [joinContact, setJoinContact] = useState('')
+  const [joinEmail, setJoinEmail] = useState('')
+  const [joinFormError, setJoinFormError] = useState<string | null>(null)
+  const [joinSuccess, setJoinSuccess] = useState(false)
   const langRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -43,6 +50,57 @@ function App() {
     document.addEventListener('click', handler)
     return () => document.removeEventListener('click', handler)
   }, [])
+
+  useEffect(() => {
+    if (!joinOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setJoinOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [joinOpen])
+
+  const closeJoinModal = () => {
+    setJoinOpen(false)
+    setJoinFormError(null)
+    setJoinSuccess(false)
+  }
+
+  const emailOk = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim())
+
+  const handleJoinSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setJoinFormError(null)
+    const sn = joinSurname.trim()
+    const gn = joinGivenName.trim()
+    const ct = joinContact.trim()
+    const em = joinEmail.trim()
+    if (!sn) {
+      setJoinFormError(t('joinUs.required'))
+      return
+    }
+    if (!gn) {
+      setJoinFormError(t('joinUs.required'))
+      return
+    }
+    if (!ct) {
+      setJoinFormError(t('joinUs.required'))
+      return
+    }
+    if (!em) {
+      setJoinFormError(t('joinUs.required'))
+      return
+    }
+    if (!emailOk(em)) {
+      setJoinFormError(t('joinUs.invalidEmail'))
+      return
+    }
+    setJoinSuccess(true)
+    setJoinSurname('')
+    setJoinGivenName('')
+    setJoinContact('')
+    setJoinEmail('')
+  }
 
   const trimmedAmount = presaleAmount.trim()
   const parsedAmount = trimmedAmount === '' ? 0 : parseFloat(presaleAmount)
@@ -326,6 +384,78 @@ function App() {
         </section>
       </main>
 
+      <div className="join-bar">
+        <button type="button" className="join-open-btn" onClick={() => setJoinOpen(true)}>
+          {t('joinUs.cta')}
+        </button>
+      </div>
+
+      {joinOpen && (
+        <div
+          className="modal-overlay"
+          role="presentation"
+          onClick={closeJoinModal}
+        >
+          <div
+            className="join-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="join-modal-title"
+            onClick={(ev) => ev.stopPropagation()}
+          >
+            <div className="join-modal-head">
+              <h2 id="join-modal-title">{t('joinUs.title')}</h2>
+              <button type="button" className="join-modal-close" onClick={closeJoinModal} aria-label={t('joinUs.close')}>
+                ×
+              </button>
+            </div>
+            {joinSuccess ? (
+              <p className="join-success">{t('joinUs.success')}</p>
+            ) : (
+              <form className="join-form" onSubmit={handleJoinSubmit}>
+                <label htmlFor="join-surname">{t('joinUs.surname')}</label>
+                <input
+                  id="join-surname"
+                  name="surname"
+                  autoComplete="family-name"
+                  value={joinSurname}
+                  onChange={(e) => setJoinSurname(e.target.value)}
+                />
+                <label htmlFor="join-given">{t('joinUs.givenName')}</label>
+                <input
+                  id="join-given"
+                  name="givenName"
+                  autoComplete="given-name"
+                  value={joinGivenName}
+                  onChange={(e) => setJoinGivenName(e.target.value)}
+                />
+                <label htmlFor="join-contact">{t('joinUs.contact')}</label>
+                <input
+                  id="join-contact"
+                  name="contact"
+                  autoComplete="tel"
+                  value={joinContact}
+                  onChange={(e) => setJoinContact(e.target.value)}
+                />
+                <label htmlFor="join-email">{t('joinUs.email')}</label>
+                <input
+                  id="join-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  value={joinEmail}
+                  onChange={(e) => setJoinEmail(e.target.value)}
+                />
+                {joinFormError && <p className="join-form-error">{joinFormError}</p>}
+                <button type="submit" className="join-submit-btn">
+                  {t('joinUs.submit')}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+
       {error && <div className="toast error">{error}</div>}
 
       <style>{`
@@ -482,6 +612,94 @@ function App() {
           border-radius: 8px;
           font-size: 0.9rem;
         }
+
+        .join-bar {
+          text-align: center;
+          padding: 2rem 1rem 3rem;
+          border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .join-open-btn {
+          background: #000;
+          color: #fff;
+          border: 1px solid rgba(255,255,255,0.35);
+          padding: 0.75rem 2rem;
+          border-radius: 8px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .join-open-btn:hover { opacity: 0.9; }
+
+        .modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.65);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1100;
+          padding: 1rem;
+        }
+        .join-modal {
+          background: #2a0a0a;
+          border: 1px solid rgba(255,255,255,0.25);
+          border-radius: 16px;
+          padding: 1.5rem;
+          max-width: 420px;
+          width: 100%;
+          max-height: 90vh;
+          overflow-y: auto;
+        }
+        .join-modal-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 1rem;
+          margin-bottom: 1rem;
+        }
+        .join-modal-head h2 { margin: 0; font-size: 1.25rem; }
+        .join-modal-close {
+          background: none;
+          border: none;
+          color: #fff;
+          font-size: 1.5rem;
+          line-height: 1;
+          cursor: pointer;
+          padding: 0 0.25rem;
+          opacity: 0.85;
+        }
+        .join-modal-close:hover { opacity: 1; }
+        .join-form label {
+          display: block;
+          margin-top: 0.75rem;
+          margin-bottom: 0.25rem;
+          font-size: 0.9rem;
+        }
+        .join-form input {
+          width: 100%;
+          padding: 0.65rem 0.75rem;
+          background: rgba(0,0,0,0.35);
+          border: 1px solid rgba(255,255,255,0.3);
+          border-radius: 8px;
+          color: #fff;
+          font-size: 1rem;
+          box-sizing: border-box;
+        }
+        .join-form-error { color: #ff6b6b; margin-top: 0.75rem; font-size: 0.9rem; margin-bottom: 0; }
+        .join-submit-btn {
+          width: 100%;
+          margin-top: 1.25rem;
+          padding: 0.85rem;
+          background: #000;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .join-submit-btn:hover { opacity: 0.9; }
+        .join-success { margin: 0.5rem 0 0; line-height: 1.6; }
 
         .toast {
           position: fixed;

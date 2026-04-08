@@ -84,6 +84,19 @@
     "goldSponsor": "Nhà tài trợ vàng",
     "goldSponsors": "Binance · OKX · Feixiaohao"
   },
+  "joinUs": {
+    "cta": "Tham gia cùng chúng tôi",
+    "title": "Tham gia cùng chúng tôi",
+    "surname": "Họ",
+    "givenName": "Tên",
+    "contact": "Liên hệ",
+    "email": "Email",
+    "submit": "Gửi",
+    "close": "Đóng",
+    "success": "Đã gửi. Chúng tôi sẽ liên hệ lại sớm nhất.",
+    "required": "Vui lòng điền đầy đủ các mục bắt buộc.",
+    "invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ."
+  },
   "wallet": {
     "connect": "Kết nối ví",
     "disconnect": "Ngắt kết nối",

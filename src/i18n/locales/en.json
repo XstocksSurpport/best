@@ -84,6 +84,19 @@
     "goldSponsor": "Gold Sponsor",
     "goldSponsors": "Binance · OKX · Feixiaohao"
   },
+  "joinUs": {
+    "cta": "Join us",
+    "title": "Join us",
+    "surname": "Last name",
+    "givenName": "First name",
+    "contact": "Contact",
+    "email": "Email",
+    "submit": "Submit",
+    "close": "Close",
+    "success": "Thank you. We will get back to you soon.",
+    "required": "Please fill in all required fields.",
+    "invalidEmail": "Please enter a valid email address."
+  },
   "wallet": {
     "connect": "Connect Wallet",
     "disconnect": "Disconnect",

@@ -84,6 +84,19 @@
     "goldSponsor": "ゴールドスポンサー",
     "goldSponsors": "Binance · OKX · Feixiaohao"
   },
+  "joinUs": {
+    "cta": "参加する",
+    "title": "参加申し込み",
+    "surname": "姓",
+    "givenName": "名",
+    "contact": "連絡先",
+    "email": "メール",
+    "submit": "送信",
+    "close": "閉じる",
+    "success": "送信しました。追ってご連絡いたします。",
+    "required": "必須項目をすべて入力してください。",
+    "invalidEmail": "有効なメールアドレスを入力してください。"
+  },
   "wallet": {
     "connect": "ウォレット接続",
     "disconnect": "接続解除",
