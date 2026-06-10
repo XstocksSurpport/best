@@ -6,7 +6,7 @@ import { isPresaleConfigured } from './config/presale'
 import type { Language } from './i18n'
 import { languages } from './i18n'
 
-const TOKEN_RATE = 100 // 1 USDT = 100 BEST
+const TOKEN_RATE = 100 // 1 USDT = 100 tokens
 const MIN_USDT = 288
 const USDT_DECIMALS = 18
 
@@ -15,7 +15,7 @@ const LOGO_SRC = `${import.meta.env.BASE_URL}logo.webp`
 const LOGO_FALLBACK_SVG =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><rect width="48" height="48" rx="8" fill="#2a0a0a"/><text x="24" y="31" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#ffd700">BEST</text></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><rect width="48" height="48" rx="8" fill="#2a0a0a"/><text x="24" y="30" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7" font-weight="700" fill="#ffd700">华尔街人生</text></svg>',
   )
 
 function App() {
@@ -119,7 +119,7 @@ function App() {
   const isValidAmount =
     (trimmedAmount === '' || Number.isFinite(parsedAmount)) && amountNum >= MIN_USDT
   const tokenAmount = isValidAmount ? Math.floor(amountNum * TOKEN_RATE) : 0
-  /** 与代币数量同步：1 $BEST = 1 空投积分 */
+  /** 与代币数量同步：1 枚代币 = 1 空投积分 */
   const airdropPoints = tokenAmount
   const presaleReady = isPresaleConfigured()
 
@@ -224,14 +224,14 @@ function App() {
         <a href="#" className="logo">
           <img
             src={logoSrc}
-            alt="BEST"
+            alt={t('meta.brandName')}
             width={48}
             height={48}
             decoding="async"
             onError={() => setLogoSrc(LOGO_FALLBACK_SVG)}
           />
           <div className="logo-text">
-            <span className="logo-symbol">$BEST</span>
+            <span className="logo-symbol">{t('meta.brandName')}</span>
             <span className="logo-slogan">{t('meta.slogan')}</span>
           </div>
         </a>
@@ -337,7 +337,7 @@ function App() {
               />
               <label>{t('presale.receive')}</label>
               <div className="receive-display">
-                {tokenAmount.toLocaleString()} $BEST
+                {tokenAmount.toLocaleString()} {t('tokenomics.symbolValue')}
               </div>
               <label>{t('presale.airdropPoints')}</label>
               <div className="receive-display">

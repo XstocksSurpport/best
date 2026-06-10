@@ -1,11 +1,12 @@
 {
   "meta": {
-    "pageTitle": "BEST Token - โทเคนปันผลหุ้นสหรัฐแรกบน BNB Chain",
+    "pageTitle": "Wall Street Life - โทเคนปันผลหุ้นสหรัฐแรกบน BNB Chain",
+    "brandName": "Wall Street Life",
     "slogan": "ถือโทเคน รับปันผล S&P · NASDAQ · หุ้นสหรัฐ"
   },
   "hero": {
-    "title": "$BEST เปิดตัวแล้ว — โทเคนปันผลหุ้นแรกบน BNB Chain!",
-    "description": "BEST (Blockchain Equity Stock Token) คือโทเคนปันผลหุ้นแรกที่ deploy บน BNB Chain ถือ $BEST เพื่อรับส่วนแบ่งปันผลจาก S&P 500, NASDAQ 100 และหุ้นสหรัฐยอดนิยม เช่น Apple, NVIDIA, Microsoft และ Tesla เรานำผลตอบแทนปันผลจาก Wall Street มาสู่บล็อกเชน ให้ทุกคนเข้าถึงการเติบโตของตลาดทุนโลกได้อย่างไร้ขีดจำกัด"
+    "title": "Wall Street Life เปิดตัวแล้ว — โทเคนปันผลหุ้นแรกบน BNB Chain!",
+    "description": "Wall Street Life (华尔街人生) คือโทเคนปันผลหุ้นแรกที่ deploy บน BNB Chain ถือ $WSL เพื่อรับส่วนแบ่งปันผลจาก S&P 500, NASDAQ 100 และหุ้นสหรัฐยอดนิยม เช่น Apple, NVIDIA, Microsoft และ Tesla เรานำผลตอบแทนปันผลจาก Wall Street มาสู่บล็อกเชน ให้ทุกคนเข้าถึงการเติบโตของตลาดทุนโลกได้อย่างไร้ขีดจำกัด"
   },
   "presale": {
     "title": "การขายล่วงหน้า",
@@ -19,9 +20,9 @@
     "connectWallet": "เชื่อมต่อกระเป๋าเพื่อเข้าร่วม",
     "participate": "เข้าร่วมการขายล่วงหน้า",
     "price": "ราคาขายล่วงหน้า",
-    "priceValue": "1 USDT = 100 $BEST",
+    "priceValue": "1 USDT = 100 $WSL",
     "totalAllocation": "การจัดสรรการขายล่วงหน้า",
-    "totalValue": "50,000,000 $BEST",
+    "totalValue": "50,000,000 $WSL",
     "chain": "เครือข่ายการชำระเงิน",
     "chainValue": "BNB Chain (BEP-20)",
     "usdtContract": "สัญญา USDT (BEP-20)",
@@ -32,16 +33,16 @@
     "title": "ฟังก์ชันโทเคน",
     "governance": "รางวัลปันผล: แจกจ่ายปันผล S&P 500, NASDAQ และหุ้นสหรัฐยอดนิยมตามสัดส่วนอัตโนมัติ",
     "events": "Snapshot บนเชน: สัญญาอัจฉริยะ snapshot การถือครองเป็นระยะ คำนวณน้ำหนักปันผลอย่างโปร่งใส",
-    "staking": "Staking Boost: ล็อค $BEST รับตัวคูณปันผลเพิ่มและผลตอบแทนจากการลงทุนซ้ำ",
+    "staking": "Staking Boost: ล็อค $WSL รับตัวคูณปันผลเพิ่มและผลตอบแทนจากการลงทุนซ้ำ",
     "empower": "โปร่งใสตรวจสอบได้: การแจกปันผลทุกครั้งบันทึกบนเชน ดำเนินการโดยสัญญาโอเพนซอร์ส",
     "connect": "เข้าถึงทั่วโลก: เข้าร่วมปันผลหุ้นสหรัฐหลักแบบครบวงจร เชื่อม TradFi กับการเงินบนเชน"
   },
   "tokenomics": {
     "title": "โทเคนมิกส์",
     "name": "ชื่อโทเคน",
-    "nameValue": "BEST Token",
+    "nameValue": "Wall Street Life",
     "symbol": "สัญลักษณ์",
-    "symbolValue": "$BEST",
+    "symbolValue": "$WSL",
     "supply": "อุปทานทั้งหมด",
     "supplyValue": "1,000,000,000 (1 พันล้าน จำกัด ไม่มีเงินเฟ้อ)",
     "chain": "บล็อกเชน",
@@ -79,7 +80,7 @@
     "q1": "Q1 2026: การตรวจสอบสัญญา + แอร์ดรอปชุมชน + แจกปันผล S&P 500 รอบแรก",
     "q2": "Q2 2026: พูลปันผล NASDAQ + พูล Staking + จดทะเบียนแลก",
     "q3": "Q3 2026: ขยายปันผลหุ้นเทคฯ + สะพานครอสเชน + แพลตฟอร์ม DAO governance",
-    "q4": "Q4 2026: ระบบนิเวศปันผลหุ้นสหรัฐครบวงจร + ระบบปันผลลงทุนซ้ำอัตโนมัติ $BEST"
+    "q4": "Q4 2026: ระบบนิเวศปันผลหุ้นสหรัฐครบวงจร + ระบบปันผลลงทุนซ้ำอัตโนมัติ $WSL"
   },
   "partners": {
     "title": "พันธมิตร",

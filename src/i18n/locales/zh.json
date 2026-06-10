@@ -1,11 +1,12 @@
 {
   "meta": {
-    "pageTitle": "BEST Token - BNB链首个美股分红代币",
+    "pageTitle": "华尔街人生 - BNB链首个美股分红代币",
+    "brandName": "华尔街人生",
     "slogan": "持币共享标普·纳指·美股红利"
   },
   "hero": {
-    "title": "$BEST 重磅上线 —— BNB链首个股票分红代币！",
-    "description": "BEST（Blockchain Equity Stock Token）是部署于 BNB Chain 的首个股票分红型代币。持有 $BEST，即可按比例分享标普500（S&P 500）、纳斯达克100（NASDAQ 100）及苹果、英伟达、微软、特斯拉等热门美股的企业股息收益。我们将华尔街的分红回报引入链上，让每一位持币者零门槛共享全球资本市场增长红利。"
+    "title": "华尔街人生重磅上线 —— BNB链首个股票分红代币！",
+    "description": "华尔街人生（Wall Street Life Token）是部署于 BNB Chain 的首个股票分红型代币。持有 $华尔街人生，即可按比例分享标普500（S&P 500）、纳斯达克100（NASDAQ 100）及苹果、英伟达、微软、特斯拉等热门美股的企业股息收益。我们将华尔街的分红回报引入链上，让每一位持币者零门槛共享全球资本市场增长红利。"
   },
   "presale": {
     "title": "预售",
@@ -19,9 +20,9 @@
     "connectWallet": "连接钱包参与",
     "participate": "参与预售",
     "price": "预售价格",
-    "priceValue": "1 USDT = 100 $BEST",
+    "priceValue": "1 USDT = 100 $华尔街人生",
     "totalAllocation": "预售总量",
-    "totalValue": "50,000,000 $BEST",
+    "totalValue": "50,000,000 $华尔街人生",
     "chain": "支付网络",
     "chainValue": "BNB Chain (BEP-20)",
     "usdtContract": "USDT 合约 (BEP-20)",
@@ -32,16 +33,16 @@
     "title": "代币功能",
     "governance": "分红收益：按比例自动分配标普500、纳指成分股及热门美股股息",
     "events": "链上快照：智能合约定期快照持仓，公平透明计算分红权重",
-    "staking": "Staking 加成：锁定 $BEST 可获得额外分红加成与复投收益",
+    "staking": "Staking 加成：锁定 $华尔街人生 可获得额外分红加成与复投收益",
     "empower": "透明可验证：每笔分红分配链上可查，开源合约自动执行",
     "connect": "全球触达：一站式参与美股核心资产分红，打通传统金融与链上世界"
   },
   "tokenomics": {
     "title": "代币经济学",
     "name": "代币名称",
-    "nameValue": "BEST Token",
+    "nameValue": "华尔街人生",
     "symbol": "符号",
-    "symbolValue": "$BEST",
+    "symbolValue": "$华尔街人生",
     "supply": "总供应量",
     "supplyValue": "1,000,000,000（10亿枚，固定上限，不可增发）",
     "chain": "区块链",
@@ -71,7 +72,7 @@
   "deflation": {
     "title": "通缩 & 增值机制",
     "tax": "交易税：每笔 4%（1% 自动 burn、1% 回流 LP、1% Staking 奖励池、1% 分红储备金）",
-    "buyback": "回购销毁：协议收入的 30% 用于公开市场回购并销毁 $BEST",
+    "buyback": "回购销毁：协议收入的 30% 用于公开市场回购并销毁 $华尔街人生",
     "effect": "预期效果：长期供应减少，代币价值与分红池规模及美股股息收益正相关"
   },
   "roadmap": {
@@ -79,7 +80,7 @@
     "q1": "Q1 2026：合约审计 + 社区空投 + 首期标普500股息分红发放",
     "q2": "Q2 2026：纳指成分股分红池上线 + Staking 池 + 交易所上线",
     "q3": "Q3 2026：热门科技股分红扩展 + 多链桥接 + DAO 治理平台上线",
-    "q4": "Q4 2026：全面美股分红生态 + $BEST 自动复投分红系统"
+    "q4": "Q4 2026：全面美股分红生态 + $华尔街人生 自动复投分红系统"
   },
   "partners": {
     "title": "合作伙伴",
