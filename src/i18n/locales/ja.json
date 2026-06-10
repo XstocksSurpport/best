@@ -1,11 +1,11 @@
 {
   "meta": {
-    "pageTitle": "BEST Token - タイブロックチェーン協会公式ガバナンストークン",
-    "slogan": "ブロックチェーン・エマージェンス・ストラテジー・タイ"
+    "pageTitle": "BEST Token - BNB Chain初の米国株配当トークン",
+    "slogan": "保有で S&P・NASDAQ・米国株配当を共有"
   },
   "hero": {
-    "title": "タイブロックチェーン協会 BEST、公式ガバナンストークン $BEST を正式リリース！",
-    "description": "BEST（Blockchain Emergence Strategy Thailand）は、タイ政府が支援するブロックチェーンイノベーション協会として、金融・デジタル資産・貿易・産業アップグレードにおけるブロックチェーン技術の深度融合の推進に長年取り組んできました。本日、$BEST トークンを正式にリリースし、協会が「政策提唱者」から「エコシステムビルダー」へと進化したことを示します。"
+    "title": "$BEST ローンチ — BNB Chain初の株式配当トークン！",
+    "description": "BEST（Blockchain Equity Stock Token）は BNB Chain 上にデプロイされた初の株式配当型トークンです。$BEST を保有することで、S&P 500、NASDAQ 100、そして Apple、NVIDIA、Microsoft、Tesla などの人気米国株の配当を比例配分で受け取れます。ウォール街の配当リターンをオンチェーンに持ち込み、すべてのホルダーがグローバル資本市場の成長にゼロ障壁でアクセスできます。"
   },
   "presale": {
     "title": "プレセール",
@@ -30,11 +30,11 @@
   },
   "tokenFunctions": {
     "title": "トークン機能",
-    "governance": "ガバナンス投票：活動優先度・パートナー選定を決定",
-    "events": "イベント特典：SIAM FRONTIER CAPITAL EXPO、Thailand Blockchain Week VIP チケット優先参加",
-    "staking": "エコシステムインセンティブ：Staking 報酬 + 手数料割引 + パートナープロジェクトエアドロップ",
-    "empower": "コミュニティ強化：協会と共同で意思決定、ブロックチェーンと従来金融の統合を推進",
-    "connect": "グローバル接続：Nasdaq資本システムへのプロジェクト支援"
+    "governance": "配当報酬：S&P 500、NASDAQ、人気米国株の配当を比例で自動分配",
+    "events": "オンチェーンスナップショット：スマートコントラクトが定期的に保有量を記録し、公平な配当ウェイトを算出",
+    "staking": "Staking ブースト：$BEST をロックで配当倍率アップと複利再投資リターン",
+    "empower": "透明性と検証可能性：すべての配当分配がオンチェーンで、オープンソースコントラクトが自動実行",
+    "connect": "グローバルアクセス：米国株コア資産の配当にワンストップ参加、TradFi とオンチェーン金融を接続"
   },
   "tokenomics": {
     "title": "トークノミクス",
@@ -45,41 +45,41 @@
     "supply": "総供給量",
     "supplyValue": "1,000,000,000（10億、固定上限、インフレなし）",
     "chain": "ブロックチェーン",
-    "chainValue": "BSC（Binance Smart Chain）でローンチ",
+    "chainValue": "BNB Chain（BSC）でローンチ",
     "liquidity": "初期流動性",
     "liquidityValue": "Binance、OKX、Coinbase上場、LP 1-2年ロック",
     "allocation": "分配（透明ベスティング）",
     "community": "コミュニティ＆エアドロップ：40%（400,000,000）",
-    "communityDesc": "会員・サミット参加者・初期貢献者へ直接エアドロップ",
+    "communityDesc": "配当プール初期参加者、コミュニティ貢献者、プレセール支援者へ直接エアドロップ",
     "liquidityPool": "流動性プール：20%（200,000,000）",
     "liquidityPoolDesc": "ローンチ時LP、1年リニアアンロック",
     "team": "チーム＆アドバイザー：15%（150,000,000）",
     "teamDesc": "4年リニアベスティング（四半期6.25%）、アンチダンプ",
     "marketing": "マーケティング＆パートナー：10%（100,000,000）",
-    "marketingDesc": "KOL、取引所提携、クロスチェンインセンティブ",
-    "treasury": "財庫＆開発：15%（150,000,000）",
-    "treasuryDesc": "サミットスポンサー、プロジェクトインキュベーション、法務コンプライアンス、DAOガバナンス"
+    "marketingDesc": "市場プロモーション、取引所提携、米国株データパートナーインセンティブ",
+    "treasury": "配当プール準備金＆プロトコル基金：15%（150,000,000）",
+    "treasuryDesc": "配当買い戻し分配、コンプライアンス、プロトコル開発、DAOガバナンス"
   },
   "utility": {
     "title": "コアユーティリティ",
-    "governance": "ガバナンス：重要決定の提案・投票",
-    "staking": "Staking報酬：$BESTをロックで15-30% APY",
-    "events": "イベント特典：Thailand Blockchain Week VIPチケット",
-    "discount": "手数料割引：$BEST支払いで20-50%オフ",
-    "partners": "パートナーインセンティブ：エアドロップ・優先用投資権"
+    "governance": "株式配当：保有で S&P/NASDAQ/人気米国株の配当を比例受取",
+    "staking": "Staking 強化：トークンロックで配当ウェイト向上、より高い収益シェアを獲得",
+    "events": "多様な資産：S&P 500、NASDAQ、テックブルーチップの配当をカバー",
+    "discount": "自動分配：手動クレーム不要 — スナップショットで USDT 配当を自動配布",
+    "partners": "複利成長：配当を Staking に再投資し、雪だるま式のリターンを実現"
   },
   "deflation": {
     "title": "デフレ＆価値メカニズム",
-    "tax": "取引税：取引ごと4%（1% burn、1% LP、1% Staking、1% Treasury）",
-    "buyback": "買い戻し＆ burn：協会収入30%を市場買い戻しに充当",
-    "effect": "長期的な供給減少、価値は協会活動規模に比例"
+    "tax": "取引税：取引ごと4%（1% burn、1% LP、1% Staking、1% 配当準備金）",
+    "buyback": "買い戻し＆ burn：プロトコル収入30%を市場買い戻しに充当",
+    "effect": "長期的な供給減少、価値は配当プール規模と米国株配当利回りに連動"
   },
   "roadmap": {
     "title": "ロードマップ",
-    "q1": "Q1 2026：契約監査＋コミュニティエアドロップ＋Thailand Blockchain Week限定特典",
-    "q2": "Q2 2026：Stakingプール＋取引所上場",
-    "q3": "Q3 2026：クロスチェンブリッジ＋DAOガバナンスプラットフォーム",
-    "q4": "Q4 2026：Nasdaqコンセプトプロジェクト連携、$BEST決済システム"
+    "q1": "Q1 2026：契約監査＋コミュニティエアドロップ＋初回 S&P 500 配当分配",
+    "q2": "Q2 2026：NASDAQ 配当プール＋Stakingプール＋取引所上場",
+    "q3": "Q3 2026：人気テック株配当拡大＋クロスチェンブリッジ＋DAOガバナンスプラットフォーム",
+    "q4": "Q4 2026：米国株配当エコシステム完成＋$BEST 自動複利配当システム"
   },
   "partners": {
     "title": "パートナー",

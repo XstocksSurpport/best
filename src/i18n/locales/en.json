@@ -1,11 +1,11 @@
 {
   "meta": {
-    "pageTitle": "BEST Token - Official Governance Token of Thailand Blockchain Association",
-    "slogan": "Blockchain Emergence Strategy Thailand"
+    "pageTitle": "BEST Token - First US Stock Dividend Token on BNB Chain",
+    "slogan": "Hold & Share S&P · NASDAQ · US Stock Dividends"
   },
   "hero": {
-    "title": "Thailand Blockchain Association BEST Officially Launches $BEST Governance Token!",
-    "description": "BEST (Blockchain Emergence Strategy Thailand), as a blockchain innovation association supported by the Thai government, has long been committed to promoting the deep integration of blockchain technology in finance, digital assets, trade, and industry upgrade. Today, we officially launch the $BEST token, marking the association's evolution from 'Policy Advocate' to 'Ecosystem Builder'."
+    "title": "$BEST Launches — The First Stock Dividend Token on BNB Chain!",
+    "description": "BEST (Blockchain Equity Stock Token) is the first stock dividend token deployed on BNB Chain. Hold $BEST to receive proportional shares of dividends from S&P 500, NASDAQ 100, and popular US stocks including Apple, NVIDIA, Microsoft, and Tesla. We bring Wall Street dividend returns on-chain, enabling every holder to access global capital market growth with zero barriers."
   },
   "presale": {
     "title": "Presale",
@@ -30,11 +30,11 @@
   },
   "tokenFunctions": {
     "title": "Token Functions",
-    "governance": "Governance Voting: Determine activity priorities and partner selection",
-    "events": "Event Privileges: Priority access to SIAM FRONTIER CAPITAL EXPO, Thailand Blockchain Week VIP tickets, closed-door roadshows",
-    "staking": "Ecosystem Incentives: Staking rewards + service fee discounts + partner project airdrops",
-    "empower": "Empower Community: Joint decision-making with the association to drive blockchain-traditional finance integration",
-    "connect": "Connect Globally: Support projects to Nasdaq capital system, achieving 'Token-Equity Linkage'"
+    "governance": "Dividend Rewards: Automatic proportional distribution of S&P 500, NASDAQ, and popular US stock dividends",
+    "events": "On-Chain Snapshots: Smart contracts snapshot holdings periodically for fair, transparent dividend weighting",
+    "staking": "Staking Boost: Lock $BEST for extra dividend multipliers and compound reinvestment returns",
+    "empower": "Transparent & Verifiable: Every dividend distribution is on-chain and executed by open-source contracts",
+    "connect": "Global Access: One-stop participation in core US stock dividends, bridging TradFi and on-chain finance"
   },
   "tokenomics": {
     "title": "Tokenomics",
@@ -45,41 +45,41 @@
     "supply": "Total Supply",
     "supplyValue": "1,000,000,000 (1 billion, fixed cap, no inflation)",
     "chain": "Blockchain",
-    "chainValue": "Launch on BSC (Binance Smart Chain)",
+    "chainValue": "Launch on BNB Chain (BSC)",
     "liquidity": "Initial Liquidity",
     "liquidityValue": "List on Binance, OKX, Coinbase; LP locked 1-2 years",
     "allocation": "Distribution (Transparent Vesting)",
     "community": "Community & Airdrop: 40% (400,000,000)",
-    "communityDesc": "Direct airdrop to members, summit participants, early contributors",
+    "communityDesc": "Airdrop to early dividend pool participants, community contributors, and presale supporters",
     "liquidityPool": "Liquidity Pool: 20% (200,000,000)",
     "liquidityPoolDesc": "LP at launch, 1-year linear unlock",
     "team": "Team & Advisors: 15% (150,000,000)",
     "teamDesc": "4-year linear vesting (6.25% quarterly), anti-dump",
     "marketing": "Marketing & Partners: 10% (100,000,000)",
-    "marketingDesc": "KOL, exchange partnerships, cross-chain incentives",
-    "treasury": "Treasury & Development: 15% (150,000,000)",
-    "treasuryDesc": "Summit sponsorship, project incubation, legal compliance, DAO governance"
+    "marketingDesc": "Market promotion, exchange partnerships, and US stock data partner incentives",
+    "treasury": "Dividend Pool Reserve & Protocol Fund: 15% (150,000,000)",
+    "treasuryDesc": "Dividend buyback distribution, compliance, protocol development, and DAO governance"
   },
   "utility": {
     "title": "Core Utility",
-    "governance": "Governance: Propose and vote on major decisions",
-    "staking": "Staking Rewards: Lock $BEST for 15-30% APY",
-    "events": "Event Privileges: VIP tickets to Thailand Blockchain Week",
-    "discount": "Fee Discounts: 20-50% off with $BEST payment",
-    "partners": "Partner Incentives: Airdrops and priority investment rights"
+    "governance": "Stock Dividends: Hold to receive proportional S&P/NASDAQ/popular US stock dividends",
+    "staking": "Staking Enhancement: Lock tokens to boost dividend weight and earn higher yield shares",
+    "events": "Diversified Assets: Coverage of S&P 500, NASDAQ, and top tech blue-chip stock dividends",
+    "discount": "Auto Distribution: No manual claims — smart contracts auto-distribute USDT dividends via snapshots",
+    "partners": "Compound Growth: Reinvest dividends into Staking for snowballing returns"
   },
   "deflation": {
     "title": "Deflation & Value Mechanism",
-    "tax": "Trading Tax: 4% per tx (1% burn, 1% LP, 1% Staking, 1% Treasury)",
-    "buyback": "Buyback & Burn: 30% of association revenue for market buyback",
-    "effect": "Long-term supply reduction, value scales with association activity"
+    "tax": "Trading Tax: 4% per tx (1% burn, 1% LP, 1% Staking, 1% Dividend Reserve)",
+    "buyback": "Buyback & Burn: 30% of protocol revenue for open-market buyback and burn",
+    "effect": "Long-term supply reduction; value scales with dividend pool size and US stock dividend yields"
   },
   "roadmap": {
     "title": "Roadmap",
-    "q1": "Q1 2026: Contract audit + Community airdrop + Thailand Blockchain Week exclusive benefits",
-    "q2": "Q2 2026: Staking pool + Exchange listing",
-    "q3": "Q3 2026: Cross-chain bridge + DAO governance platform",
-    "q4": "Q4 2026: Nasdaq concept project integration, $BEST payment settlement system"
+    "q1": "Q1 2026: Contract audit + Community airdrop + First S&P 500 dividend distribution",
+    "q2": "Q2 2026: NASDAQ dividend pool launch + Staking pool + Exchange listing",
+    "q3": "Q3 2026: Hot tech stock dividend expansion + Cross-chain bridge + DAO governance platform",
+    "q4": "Q4 2026: Full US stock dividend ecosystem + $BEST auto-compound dividend system"
   },
   "partners": {
     "title": "Partners",

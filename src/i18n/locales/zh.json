@@ -1,11 +1,11 @@
 {
   "meta": {
-    "pageTitle": "BEST Token - 泰国区块链协会官方治理代币",
-    "slogan": "区块链新兴战略泰国"
+    "pageTitle": "BEST Token - BNB链首个美股分红代币",
+    "slogan": "持币共享标普·纳指·美股红利"
   },
   "hero": {
-    "title": "泰国区块链协会 BEST 正式推出官方治理代币 $BEST！",
-    "description": "BEST（Blockchain Emergence Strategy Thailand）作为泰国政府支持的区块链创新协会，长期致力于推动区块链技术在金融、数字资产、贸易及产业升级领域的深度融合。今日，我们正式发布 $BEST 代币，标志着协会从「政策倡导者」升级为「生态建设者」。"
+    "title": "$BEST 重磅上线 —— BNB链首个股票分红代币！",
+    "description": "BEST（Blockchain Equity Stock Token）是部署于 BNB Chain 的首个股票分红型代币。持有 $BEST，即可按比例分享标普500（S&P 500）、纳斯达克100（NASDAQ 100）及苹果、英伟达、微软、特斯拉等热门美股的企业股息收益。我们将华尔街的分红回报引入链上，让每一位持币者零门槛共享全球资本市场增长红利。"
   },
   "presale": {
     "title": "预售",
@@ -30,11 +30,11 @@
   },
   "tokenFunctions": {
     "title": "代币功能",
-    "governance": "治理投票：决定协会活动优先级、合作伙伴选择",
-    "events": "活动特权：优先参与 SIAM FRONTIER CAPITAL EXPO、泰国区块链周 VIP 门票、闭门路演",
-    "staking": "生态激励：Staking 赚取收益 + 服务费折扣 + 合作伙伴项目空投",
-    "empower": "赋能社区：让社区与官方共同决策，推动区块链与传统金融的融合创新",
-    "connect": "连接全球：助力优秀项目直通纳斯达克资本体系，实现「币股联动」"
+    "governance": "分红收益：按比例自动分配标普500、纳指成分股及热门美股股息",
+    "events": "链上快照：智能合约定期快照持仓，公平透明计算分红权重",
+    "staking": "Staking 加成：锁定 $BEST 可获得额外分红加成与复投收益",
+    "empower": "透明可验证：每笔分红分配链上可查，开源合约自动执行",
+    "connect": "全球触达：一站式参与美股核心资产分红，打通传统金融与链上世界"
   },
   "tokenomics": {
     "title": "代币经济学",
@@ -45,41 +45,41 @@
     "supply": "总供应量",
     "supplyValue": "1,000,000,000（10亿枚，固定上限，不可增发）",
     "chain": "区块链",
-    "chainValue": "首发 BSC（Binance Smart Chain）",
+    "chainValue": "BNB Chain（BSC）首发",
     "liquidity": "初始流动性",
     "liquidityValue": "上线币圈顶级交易所，锁定 1-2 年",
     "allocation": "分配比例（透明锁仓机制）",
     "community": "社区激励 & 空投：40%（400,000,000）",
-    "communityDesc": "直接空投给协会会员、峰会参与者、早期贡献者",
+    "communityDesc": "空投给分红池早期参与者、社区贡献者及预售支持者",
     "liquidityPool": "流动性池：20%（200,000,000）",
     "liquidityPoolDesc": "上线即提供 LP，1 年线性解锁",
     "team": "团队 & 顾问：15%（150,000,000）",
     "teamDesc": "4 年线性 vesting（每季度解锁 6.25%），防 dump",
     "marketing": "营销 & 合作伙伴：10%（100,000,000）",
-    "marketingDesc": "用于 KOL、交易所合作、跨链激励",
-    "treasury": "协会 Treasury（金库）& 开发基金：15%（150,000,000）",
-    "treasuryDesc": "用于峰会赞助、项目孵化、法律合规，DAO 治理投票使用"
+    "marketingDesc": "用于市场推广、交易所合作及美股数据合作伙伴激励",
+    "treasury": "分红池储备金 & 协议基金：15%（150,000,000）",
+    "treasuryDesc": "用于股息回购分配、合规运营、协议开发与 DAO 治理投票"
   },
   "utility": {
     "title": "核心用途 & 实用性",
-    "governance": "治理：持有 $BEST 可提案并投票协会重大决策",
-    "staking": "Staking 收益：锁定 $BEST 赚取 APY（初始 15-30%）",
-    "events": "活动特权：持仓达一定数量可获泰国区块链周 VIP 门票",
-    "discount": "服务费折扣：使用 $BEST 支付可享 20-50% 折扣",
-    "partners": "合作伙伴激励：持有者可获项目空投与优先投资权"
+    "governance": "股息分红：持有即享按比例分配的标普/纳指/热门美股股息",
+    "staking": "Staking 增强：锁定代币提升分红权重，获取更高收益份额",
+    "events": "多元资产：覆盖标普500、纳斯达克及科技蓝筹热门股票分红",
+    "discount": "自动分配：无需手动领取，智能合约按快照自动发放 USDT 分红",
+    "partners": "复利增长：分红可再投入 Staking，实现收益滚雪球效应"
   },
   "deflation": {
     "title": "通缩 & 增值机制",
-    "tax": "交易税：每笔 4%（1% 自动 burn、1% 回流 LP、1% Staking 奖励池、1% Treasury）",
-    "buyback": "回购销毁：协会收入 30% 用于公开市场回购并销毁",
-    "effect": "预期效果：长期供应减少，价值与协会活动规模正相关"
+    "tax": "交易税：每笔 4%（1% 自动 burn、1% 回流 LP、1% Staking 奖励池、1% 分红储备金）",
+    "buyback": "回购销毁：协议收入的 30% 用于公开市场回购并销毁 $BEST",
+    "effect": "预期效果：长期供应减少，代币价值与分红池规模及美股股息收益正相关"
   },
   "roadmap": {
     "title": "路线图",
-    "q1": "Q1 2026：合约审计 + 社区空投 + 泰国区块链周专属权益",
-    "q2": "Q2 2026：Staking 池上线 + 交易所上线",
-    "q3": "Q3 2026：多链桥接 + DAO 治理平台上线",
-    "q4": "Q4 2026：与纳斯达克概念项目深度绑定，推出 $BEST 支付结算系统"
+    "q1": "Q1 2026：合约审计 + 社区空投 + 首期标普500股息分红发放",
+    "q2": "Q2 2026：纳指成分股分红池上线 + Staking 池 + 交易所上线",
+    "q3": "Q3 2026：热门科技股分红扩展 + 多链桥接 + DAO 治理平台上线",
+    "q4": "Q4 2026：全面美股分红生态 + $BEST 自动复投分红系统"
   },
   "partners": {
     "title": "合作伙伴",

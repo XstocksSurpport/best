@@ -1,11 +1,11 @@
 {
   "meta": {
-    "pageTitle": "BEST Token - Token quản trị chính thức của Hiệp hội Blockchain Thái Lan",
-    "slogan": "Chiến lược Blockchain Mới nổi Thái Lan"
+    "pageTitle": "BEST Token - Token cổ tức cổ phiếu Mỹ đầu tiên trên BNB Chain",
+    "slogan": "Nắm giữ & chia sẻ cổ tức S&P · NASDAQ · cổ phiếu Mỹ"
   },
   "hero": {
-    "title": "Hiệp hội Blockchain Thái Lan BEST chính thức ra mắt token quản trị $BEST!",
-    "description": "BEST (Blockchain Emergence Strategy Thailand), với tư cách là hiệp hội đổi mới blockchain được chính phủ Thái Lan hỗ trợ, từ lâu đã cam kết thúc đẩy sự hòa nhập sâu rộng của công nghệ blockchain trong tài chính, tài sản số, thương mại và nâng cấp ngành. Hôm nay, chúng tôi chính thức phát hành token $BEST, đánh dấu sự nâng cấp của hiệp hội từ 'Người vận động chính sách' thành 'Người xây dựng hệ sinh thái'."
+    "title": "$BEST ra mắt — Token cổ tức cổ phiếu đầu tiên trên BNB Chain!",
+    "description": "BEST (Blockchain Equity Stock Token) là token cổ tức cổ phiếu đầu tiên triển khai trên BNB Chain. Nắm giữ $BEST để nhận phần chia cổ tức từ S&P 500, NASDAQ 100 và các cổ phiếu Mỹ phổ biến như Apple, NVIDIA, Microsoft và Tesla. Chúng tôi đưa cổ tức Wall Street lên chuỗi, giúp mọi người nắm giữ tiếp cận tăng trưởng thị trường vốn toàn cầu không rào cản."
   },
   "presale": {
     "title": "Bán trước",
@@ -30,11 +30,11 @@
   },
   "tokenFunctions": {
     "title": "Chức năng Token",
-    "governance": "Bỏ phiếu quản trị: Quyết định ưu tiên hoạt động và đối tác",
-    "events": "Đặc quyền sự kiện: Ưu tiên SIAM FRONTIER CAPITAL EXPO, vé VIP Thailand Blockchain Week",
-    "staking": "Khuyến khích hệ sinh thái: Staking thu nhập + giảm phí + airdrop dự án đối tác",
-    "empower": "Trao quyền cộng đồng: Quyết định chung với hiệp hội, thúc đẩy tích hợp blockchain-tài chính truyền thống",
-    "connect": "Kết nối toàn cầu: Hỗ trợ dự án tới hệ thống vốn Nasdaq"
+    "governance": "Phần thưởng cổ tức: Phân phối tự động cổ tức S&P 500, NASDAQ và cổ phiếu Mỹ phổ biến theo tỷ lệ",
+    "events": "Snapshot on-chain: Hợp đồng thông minh chụp ảnh nắm giữ định kỳ, tính trọng số cổ tức công bằng minh bạch",
+    "staking": "Tăng cường Staking: Khóa $BEST nhận hệ số cổ tức thêm và lợi nhuận tái đầu tư",
+    "empower": "Minh bạch & xác minh: Mọi phân phối cổ tức đều on-chain, thực thi bởi hợp đồng mã nguồn mở",
+    "connect": "Tiếp cận toàn cầu: Tham gia cổ tức cổ phiếu Mỹ cốt lõi một cửa, kết nối TradFi và tài chính on-chain"
   },
   "tokenomics": {
     "title": "Tokenomics",
@@ -45,41 +45,41 @@
     "supply": "Tổng cung",
     "supplyValue": "1,000,000,000 (1 tỷ, giới hạn cố định, không lạm phát)",
     "chain": "Blockchain",
-    "chainValue": "Ra mắt trên BSC (Binance Smart Chain)",
+    "chainValue": "Ra mắt trên BNB Chain (BSC)",
     "liquidity": "Thanh khoản ban đầu",
     "liquidityValue": "Niêm yết Binance, OKX, Coinbase; LP khóa 1-2 năm",
     "allocation": "Phân bổ (Giải phóng minh bạch)",
     "community": "Cộng đồng & Airdrop: 40% (400,000,000)",
-    "communityDesc": "Airdrop trực tiếp cho thành viên, người tham dự hội nghị, đóng góp sớm",
+    "communityDesc": "Airdrop cho người tham gia pool cổ tức sớm, đóng góp cộng đồng và người ủng hộ presale",
     "liquidityPool": "Pool thanh khoản: 20% (200,000,000)",
     "liquidityPoolDesc": "LP khi ra mắt, mở khóa tuyến tính 1 năm",
     "team": "Đội ngũ & Cố vấn: 15% (150,000,000)",
     "teamDesc": "Vesting tuyến tính 4 năm (6.25% mỗi quý), chống dump",
     "marketing": "Marketing & Đối tác: 10% (100,000,000)",
-    "marketingDesc": "KOL, đối tác sàn, khuyến khích cross-chain",
-    "treasury": "Kho bạc & Phát triển: 15% (150,000,000)",
-    "treasuryDesc": "Tài trợ hội nghị, ươm tạo dự án, tuân thủ pháp lý, DAO governance"
+    "marketingDesc": "Quảng bá thị trường, đối tác sàn và khuyến khích đối tác dữ liệu cổ phiếu Mỹ",
+    "treasury": "Dự trữ pool cổ tức & Quỹ giao thức: 15% (150,000,000)",
+    "treasuryDesc": "Phân phối cổ tức mua lại, tuân thủ pháp lý, phát triển giao thức và DAO governance"
   },
   "utility": {
     "title": "Tiện ích cốt lõi",
-    "governance": "Quản trị: Đề xuất và bỏ phiếu quyết định lớn",
-    "staking": "Phần thưởng Staking: Khóa $BEST cho APY 15-30%",
-    "events": "Đặc quyền sự kiện: Vé VIP Thailand Blockchain Week",
-    "discount": "Giảm phí: 20-50% khi thanh toán bằng $BEST",
-    "partners": "Khuyến khích đối tác: Airdrop và quyền đầu tư ưu tiên"
+    "governance": "Cổ tức cổ phiếu: Nắm giữ để nhận cổ tức S&P/NASDAQ/cổ phiếu Mỹ phổ biến theo tỷ lệ",
+    "staking": "Tăng cường Staking: Khóa token tăng trọng số cổ tức, nhận phần lợi nhuận cao hơn",
+    "events": "Tài sản đa dạng: Bao phủ cổ tức S&P 500, NASDAQ và cổ phiếu công nghệ blue-chip hàng đầu",
+    "discount": "Phân phối tự động: Không cần claim thủ công — hợp đồng thông minh tự phân phối USDT qua snapshot",
+    "partners": "Tăng trưởng lãi kép: Tái đầu tư cổ tức vào Staking để lợi nhuận tích lũy như tuyết lăn"
   },
   "deflation": {
     "title": "Cơ chế giảm phát & giá trị",
-    "tax": "Thuế giao dịch: 4% mỗi tx (1% burn, 1% LP, 1% Staking, 1% Treasury)",
-    "buyback": "Mua lại & đốt: 30% doanh thu hiệp hội dùng mua lại thị trường",
-    "effect": "Giảm cung dài hạn, giá trị tỷ lệ với hoạt động hiệp hội"
+    "tax": "Thuế giao dịch: 4% mỗi tx (1% burn, 1% LP, 1% Staking, 1% Dự trữ cổ tức)",
+    "buyback": "Mua lại & đốt: 30% doanh thu giao thức dùng mua lại thị trường mở",
+    "effect": "Giảm cung dài hạn; giá trị tỷ lệ với quy mô pool cổ tức và lợi suất cổ tức cổ phiếu Mỹ"
   },
   "roadmap": {
     "title": "Lộ trình",
-    "q1": "Q1 2026: Kiểm toán hợp đồng + Airdrop cộng đồng + Quyền lợi độc quyền Thailand Blockchain Week",
-    "q2": "Q2 2026: Pool Staking + Niêm yết sàn",
-    "q3": "Q3 2026: Cầu cross-chain + Nền tảng DAO governance",
-    "q4": "Q4 2026: Tích hợp dự án Nasdaq, hệ thống thanh toán $BEST"
+    "q1": "Q1 2026: Kiểm toán hợp đồng + Airdrop cộng đồng + Phân phối cổ tức S&P 500 đầu tiên",
+    "q2": "Q2 2026: Pool cổ tức NASDAQ + Pool Staking + Niêm yết sàn",
+    "q3": "Q3 2026: Mở rộng cổ tức cổ phiếu công nghệ + Cầu cross-chain + Nền tảng DAO governance",
+    "q4": "Q4 2026: Hệ sinh thái cổ tức cổ phiếu Mỹ toàn diện + Hệ thống tái đầu tư cổ tức tự động $BEST"
   },
   "partners": {
     "title": "Đối tác",
