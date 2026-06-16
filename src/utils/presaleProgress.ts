@@ -1,7 +1,7 @@
 // Presale progress: deterministic from a fixed start time (same for all users).
-// - Before start: 96.78%
+// - Before start: 98.35%
 // - From 2026-06-16 18:00 UTC+8: +0.02% per hour until 99.99%
-// - At end of cycle (99.99%): resets to 96.78%, repeats forever
+// - At end of cycle (99.99%): resets to 98.35%, repeats forever
 
 /** 2026/06/16 18:00 UTC+8 */
 const PROGRESS_START_MS = new Date('2026-06-16T18:00:00+08:00').getTime()
@@ -9,10 +9,10 @@ const PROGRESS_START_MS = new Date('2026-06-16T18:00:00+08:00').getTime()
 const HOUR_MS = 60 * 60 * 1000
 const DAY_MS = 24 * HOUR_MS
 
-const INITIAL_PROGRESS = 96.78
+const INITIAL_PROGRESS = 98.35
 const PROGRESS_CAP = 99.99
 const HOURLY_STEP = 0.02
-/** 从 96.78% 增至 99.99% 所需小时数 = 3.21 / 0.02 */
+/** 从 98.35% 增至 99.99% 所需小时数 = 1.64 / 0.02 */
 const CYCLE_MS = ((PROGRESS_CAP - INITIAL_PROGRESS) / HOURLY_STEP) * HOUR_MS
 
 /** 首次预售截止：北京时间 2026-04-15 日末；过期后每 15 天顺延，直至当前时间落在某一截止时刻之前 */

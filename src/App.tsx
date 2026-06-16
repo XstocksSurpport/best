@@ -40,7 +40,7 @@ function App() {
   } = useWallet()
 
   const [presaleAmount, setPresaleAmount] = useState('')
-  const [progress, setProgress] = useState(96.78)
+  const [progress, setProgress] = useState(98.35)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [presaleError, setPresaleError] = useState<string | null>(null)
   const [langOpen, setLangOpen] = useState(false)
