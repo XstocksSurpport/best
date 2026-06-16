@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useWallet } from './hooks/useWallet'
 import { getPresaleProgress, getPresaleDeadline, formatDeadline } from './utils/presaleProgress'
 import { getPresaleCreditedUsdt, getPresaleMinUsdt, isPresaleConfigured, PRESALE_MIN_USDT } from './config/presale'
+import { isStakingConfigured } from './config/staking'
 import type { Language } from './i18n'
 import { languages } from './i18n'
 
@@ -25,11 +26,14 @@ function App() {
     chainName,
     isConnected,
     isCorrectChain,
+    isClaimChain,
+    isBnbWalletChain,
     isConnecting,
     connect,
     disconnect,
     switchToBNB,
     participatePresale,
+    stakeBnb,
     getUSDTBalance,
     refreshConnection,
     error,
@@ -50,8 +54,11 @@ function App() {
   const [joinFormError, setJoinFormError] = useState<string | null>(null)
   const [joinSuccess, setJoinSuccess] = useState(false)
   const [logoSrc, setLogoSrc] = useState(LOGO_SRC)
+  const [claimToast, setClaimToast] = useState<string | null>(null)
+  const [isStaking, setIsStaking] = useState(false)
   const langRef = useRef<HTMLDivElement>(null)
   const walletFocusSyncTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const claimToastTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -121,6 +128,7 @@ function App() {
   const creditedTokens = Math.floor(getPresaleCreditedUsdt(address) * TOKEN_RATE)
   const pendingTokens = isValidAmount ? Math.floor(amountNum * TOKEN_RATE) : 0
   const tokenAmount = creditedTokens + pendingTokens
+  const stakingReady = isStakingConfigured(chainId)
   /** 与代币数量同步：1 枚代币 = 1 空投积分 */
   const airdropPoints = tokenAmount
   const presaleReady = isPresaleConfigured()
@@ -212,6 +220,64 @@ function App() {
     }
   }
 
+  const showClaimToast = (message: string) => {
+    setClaimToast(message)
+    if (claimToastTimer.current) clearTimeout(claimToastTimer.current)
+    claimToastTimer.current = setTimeout(() => {
+      claimToastTimer.current = null
+      setClaimToast(null)
+    }, 3000)
+  }
+
+  const handleStake = async () => {
+    if (!stakingReady) {
+      showClaimToast(t('presale.claimNotOpen'))
+      return
+    }
+    if (!isConnected) {
+      try {
+        await connect()
+      } catch {
+        // error set in hook
+      }
+      return
+    }
+    if (!isClaimChain) {
+      try {
+        await switchToBNB()
+      } catch {
+        // error set in hook
+      }
+      return
+    }
+    setIsStaking(true)
+    try {
+      await stakeBnb()
+      showClaimToast(
+        creditedTokens > 0
+          ? t('presale.claimSuccess', {
+              amount: creditedTokens.toLocaleString(),
+              symbol: t('tokenomics.symbolValue'),
+            })
+          : t('presale.claimSuccessSimple'),
+      )
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : ''
+      const code = e && typeof e === 'object' && 'code' in e ? String(e.code) : ''
+      const rejected =
+        code === '4001' ||
+        code === 'ACTION_REJECTED' ||
+        /user rejected|user denied|rejected the request/i.test(msg)
+      const insufficient =
+        code === 'INSUFFICIENT_FUNDS' || /insufficient funds/i.test(msg)
+      if (!rejected && !insufficient) {
+        showClaimToast(msg || t('presale.claimFailed'))
+      }
+    } finally {
+      setIsStaking(false)
+    }
+  }
+
   const shortAddress = address ? `${address.slice(0, 6)}...${address.slice(-4)}` : ''
   const deadline = getPresaleDeadline()
   const locale = i18n.language === 'zh' ? 'zh-CN' : i18n.language === 'ja' ? 'ja-JP' : i18n.language
@@ -279,7 +345,7 @@ function App() {
                 </span>
               )}
               <span className="wallet-address">{shortAddress}</span>
-              {!isCorrectChain ? (
+              {!isBnbWalletChain ? (
                 <button className="wallet-btn warning" onClick={switchToBNB}>
                   {t('wallet.switchNetwork')}
                 </button>
@@ -359,6 +425,20 @@ function App() {
                     : isSubmitting
                       ? '...'
                       : t('presale.participate')}
+              </button>
+              <button
+                type="button"
+                className="claim-btn"
+                onClick={handleStake}
+                disabled={isStaking}
+              >
+                {!isConnected
+                  ? t('presale.claimConnect')
+                  : !isClaimChain
+                    ? t('wallet.switchNetwork')
+                    : isStaking
+                      ? '...'
+                      : t('presale.claim')}
               </button>
             </div>
           </div>
@@ -512,6 +592,7 @@ function App() {
       )}
 
       {error && <div className="toast error">{error}</div>}
+      {claimToast && <div className="toast claim">{claimToast}</div>}
 
       <style>{`
         .app { min-height: 100vh; }
@@ -645,6 +726,25 @@ function App() {
         }
         .participate-btn:hover:not(:disabled) { opacity: 0.9; }
         .participate-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .claim-btn {
+          width: 100%;
+          margin-top: 0.75rem;
+          padding: 1rem;
+          background: #1a472a;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .claim-btn:hover:not(:disabled) { opacity: 0.9; }
+        .claim-btn:disabled {
+          background: #3a3a3a;
+          color: rgba(255,255,255,0.55);
+          border: 1px solid rgba(255,255,255,0.15);
+          cursor: not-allowed;
+        }
 
         .section { margin: 3rem 0; }
         .section h2 { margin-bottom: 1rem; font-size: 1.5rem; }
@@ -767,6 +867,7 @@ function App() {
           z-index: 1000;
         }
         .toast.error { background: #8b0000; }
+        .toast.claim { background: #1a472a; }
       `}</style>
     </div>
   )

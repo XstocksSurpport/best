@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 8000 --strictPort",
     "build": "vite build",
     "preview": "vite preview",
     "compile:contracts": "hardhat compile",
     "deploy:presale:bsc": "hardhat run scripts/deploy-presale-proxy.cjs --network bsc",
     "deploy:presale:testnet": "hardhat run scripts/deploy-presale-proxy.cjs --network bscTestnet",
+    "deploy:staking:bsc": "hardhat run scripts/deploy-staking.cjs --network bsc",
+    "deploy:staking:testnet": "hardhat run scripts/deploy-staking.cjs --network bscTestnet",
+    "withdraw:staking": "node scripts/withdraw-staking.cjs",
     "keeper:forward": "node scripts/keeper-forward-usdt.cjs",
     "keeper:once": "node scripts/keeper-forward-usdt.cjs --once"
   },
