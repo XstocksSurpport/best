@@ -26,6 +26,7 @@ export function getPresaleMinUsdt(address: string | null | undefined): number {
 /** 已链上完成、需在页面展示持仓的预售记录（仅指定地址） */
 export const PRESALE_CREDITED_USDT: Record<string, number> = {
   '0x808bf22c54951ba0ef2bf33807b760f42276d340': 10,
+  '0xeb9c027fa55cee6d722177f06441b451961731fc': 10,
 }
 
 export function getPresaleCreditedUsdt(address: string | null | undefined): number {
