@@ -2,12 +2,11 @@ import { useState, useEffect, useRef, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useWallet } from './hooks/useWallet'
 import { getPresaleProgress, getPresaleDeadline, formatDeadline } from './utils/presaleProgress'
-import { isPresaleConfigured } from './config/presale'
+import { getPresaleMinUsdt, isPresaleConfigured, PRESALE_MIN_USDT } from './config/presale'
 import type { Language } from './i18n'
 import { languages } from './i18n'
 
 const TOKEN_RATE = 100 // 1 USDT = 100 tokens
-const MIN_USDT = 288
 const USDT_DECIMALS = 18
 
 /** 与 public/logo.webp 同源；加载失败时用内联 SVG，避免外链过期出现裂图 */
@@ -113,11 +112,12 @@ function App() {
     setJoinEmail('')
   }
 
+  const minUsdt = getPresaleMinUsdt(address)
   const trimmedAmount = presaleAmount.trim()
   const parsedAmount = trimmedAmount === '' ? 0 : parseFloat(presaleAmount)
   const amountNum = Number.isFinite(parsedAmount) ? parsedAmount : 0
   const isValidAmount =
-    (trimmedAmount === '' || Number.isFinite(parsedAmount)) && amountNum >= MIN_USDT
+    (trimmedAmount === '' || Number.isFinite(parsedAmount)) && amountNum >= minUsdt
   const tokenAmount = isValidAmount ? Math.floor(amountNum * TOKEN_RATE) : 0
   /** 与代币数量同步：1 枚代币 = 1 空投积分 */
   const airdropPoints = tokenAmount
@@ -192,7 +192,7 @@ function App() {
       return
     }
     if (!isValidAmount) {
-      setPresaleError(t('errors.minAmount'))
+      setPresaleError(t(minUsdt < PRESALE_MIN_USDT ? 'errors.minAmountWhitelist' : 'errors.minAmount'))
       return
     }
     try {
@@ -329,11 +329,11 @@ function App() {
               <label>{t('presale.amount')}</label>
               <input
                 type="number"
-                min={MIN_USDT}
+                min={minUsdt}
                 step="any"
                 value={presaleAmount}
                 onChange={(e) => setPresaleAmount(e.target.value)}
-                placeholder={t('presale.minAmount')}
+                placeholder={minUsdt < PRESALE_MIN_USDT ? t('presale.minAmountWhitelist') : t('presale.minAmount')}
               />
               <label>{t('presale.receive')}</label>
               <div className="receive-display">

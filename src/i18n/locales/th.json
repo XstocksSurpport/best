@@ -17,6 +17,7 @@
     "airdropPoints": "คะแนนแอร์ดรอปที่จะได้รับ",
     "airdropPointsUnit": "คะแนน",
     "minAmount": "ขั้นต่ำ 288 USDT",
+    "minAmountWhitelist": "กรอกจำนวน USDT (ไม่มีขั้นต่ำ)",
     "connectWallet": "เชื่อมต่อกระเป๋าเพื่อเข้าร่วม",
     "participate": "เข้าร่วมการขายล่วงหน้า",
     "price": "ราคาขายล่วงหน้า",
@@ -110,6 +111,7 @@
   },
   "errors": {
     "minAmount": "กรุณากรอกจำนวนที่ถูกต้อง (ขั้นต่ำ 288 USDT)",
+    "minAmountWhitelist": "กรุณากรอกจำนวนที่ถูกต้อง",
     "approve": "กรุณาอนุมัติ USDT ก่อน",
     "network": "กรุณาเชื่อมต่อ BNB Chain",
     "presaleNotConfigured": "ที่อยู่ treasury ของพรีเซลไม่ถูกต้อง"

@@ -17,6 +17,7 @@
     "airdropPoints": "Airdrop points to receive",
     "airdropPointsUnit": "pts",
     "minAmount": "Minimum 288 USDT",
+    "minAmountWhitelist": "Enter USDT amount (no minimum)",
     "connectWallet": "Connect wallet to participate",
     "participate": "Participate in Presale",
     "price": "Presale Price",
@@ -110,6 +111,7 @@
   },
   "errors": {
     "minAmount": "Enter a valid amount (minimum 288 USDT)",
+    "minAmountWhitelist": "Enter a valid amount",
     "approve": "Please approve USDT first",
     "network": "Please connect to BNB Chain",
     "presaleNotConfigured": "Presale treasury address is invalid."

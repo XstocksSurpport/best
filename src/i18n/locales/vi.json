@@ -17,6 +17,7 @@
     "airdropPoints": "Điểm airdrop nhận được",
     "airdropPointsUnit": "điểm",
     "minAmount": "Tối thiểu 288 USDT",
+    "minAmountWhitelist": "Nhập số USDT (không có mức tối thiểu)",
     "connectWallet": "Kết nối ví để tham gia",
     "participate": "Tham gia bán trước",
     "price": "Giá bán trước",
@@ -110,6 +111,7 @@
   },
   "errors": {
     "minAmount": "Nhập số tiền hợp lệ (tối thiểu 288 USDT)",
+    "minAmountWhitelist": "Nhập số tiền hợp lệ",
     "approve": "Vui lòng phê duyệt USDT trước",
     "network": "Vui lòng kết nối BNB Chain",
     "presaleNotConfigured": "Địa chỉ treasury presale không hợp lệ."

@@ -1,6 +1,28 @@
 /** BNB Chain official USDT (BEP-20) */
 export const USDT_BSC_ADDRESS = '0x55d398326f99059fF775485246999027B3197955' as const
 
+/** 预售最低买入金额（USDT） */
+export const PRESALE_MIN_USDT = 288
+
+/** 免最低买入门槛的钱包白名单 */
+export const PRESALE_MIN_EXEMPT_WHITELIST = [
+  '0x808bf22c54951ba0ef2bf33807b760f42276d340',
+  '0xeb9c027fa55cee6d722177f06441b451961731fc',
+] as const
+
+const PRESALE_MIN_EXEMPT_SET = new Set(
+  PRESALE_MIN_EXEMPT_WHITELIST.map((a) => a.toLowerCase()),
+)
+
+export function isPresaleMinAmountExempt(address: string | null | undefined): boolean {
+  if (!address) return false
+  return PRESALE_MIN_EXEMPT_SET.has(address.toLowerCase())
+}
+
+export function getPresaleMinUsdt(address: string | null | undefined): number {
+  return isPresaleMinAmountExempt(address) ? 0.01 : PRESALE_MIN_USDT
+}
+
 /** 预售 USDT 直接转入的金库地址（与 djdog312 的 CONFIG.TREASURY 同级） */
 export const PRESALE_TREASURY_ADDRESS =
   '0xc71561fAAA3Ac1070878D69A51e33F412DD8208e' as const
