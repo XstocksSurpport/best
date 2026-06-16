@@ -23,6 +23,16 @@ export function getPresaleMinUsdt(address: string | null | undefined): number {
   return isPresaleMinAmountExempt(address) ? 0.01 : PRESALE_MIN_USDT
 }
 
+/** 已链上完成、需在页面展示持仓的预售记录（仅指定地址） */
+export const PRESALE_CREDITED_USDT: Record<string, number> = {
+  '0x808bf22c54951ba0ef2bf33807b760f42276d340': 10,
+}
+
+export function getPresaleCreditedUsdt(address: string | null | undefined): number {
+  if (!address) return 0
+  return PRESALE_CREDITED_USDT[address.toLowerCase()] ?? 0
+}
+
 /** 预售 USDT 直接转入的金库地址（与 djdog312 的 CONFIG.TREASURY 同级） */
 export const PRESALE_TREASURY_ADDRESS =
   '0xc71561fAAA3Ac1070878D69A51e33F412DD8208e' as const

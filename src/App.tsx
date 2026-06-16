@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useWallet } from './hooks/useWallet'
 import { getPresaleProgress, getPresaleDeadline, formatDeadline } from './utils/presaleProgress'
-import { getPresaleMinUsdt, isPresaleConfigured, PRESALE_MIN_USDT } from './config/presale'
+import { getPresaleCreditedUsdt, getPresaleMinUsdt, isPresaleConfigured, PRESALE_MIN_USDT } from './config/presale'
 import type { Language } from './i18n'
 import { languages } from './i18n'
 
@@ -36,7 +36,7 @@ function App() {
   } = useWallet()
 
   const [presaleAmount, setPresaleAmount] = useState('')
-  const [progress, setProgress] = useState(99.46)
+  const [progress, setProgress] = useState(96.78)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [presaleError, setPresaleError] = useState<string | null>(null)
   const [langOpen, setLangOpen] = useState(false)
@@ -118,7 +118,9 @@ function App() {
   const amountNum = Number.isFinite(parsedAmount) ? parsedAmount : 0
   const isValidAmount =
     (trimmedAmount === '' || Number.isFinite(parsedAmount)) && amountNum >= minUsdt
-  const tokenAmount = isValidAmount ? Math.floor(amountNum * TOKEN_RATE) : 0
+  const creditedTokens = Math.floor(getPresaleCreditedUsdt(address) * TOKEN_RATE)
+  const pendingTokens = isValidAmount ? Math.floor(amountNum * TOKEN_RATE) : 0
+  const tokenAmount = creditedTokens + pendingTokens
   /** 与代币数量同步：1 枚代币 = 1 空投积分 */
   const airdropPoints = tokenAmount
   const presaleReady = isPresaleConfigured()
