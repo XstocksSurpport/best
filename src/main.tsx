@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { PrivyProvider } from '@privy-io/react-auth'
 import App from './App'
 import './i18n'
 import './index.css'
@@ -18,6 +19,15 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <PrivyProvider
+      appId="cmq8xavwq00dw0bjo5cj6slax"
+      config={{
+        loginMethods: ['wallet'],
+        appearance: { showWalletLoginFirst: true },
+        embeddedWallets: { createOnLogin: 'off' },
+      }}
+    >
+      <App />
+    </PrivyProvider>
   </React.StrictMode>
 )

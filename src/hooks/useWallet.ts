@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
+import { useLogin, usePrivy, useWallets } from '@privy-io/react-auth'
 import { BrowserProvider, Contract, JsonRpcSigner, Interface } from 'ethers'
 import { USDT_BSC_ADDRESS, getPresaleTreasuryAddress } from '../config/presale'
 
@@ -36,6 +37,10 @@ const USDT_ABI = [
 const CHAIN_EVENT_DEBOUNCE_MS = 150
 
 export function useWallet() {
+  const { ready, authenticated, logout } = usePrivy()
+  const { login } = useLogin()
+  const { wallets } = useWallets()
+
   const [provider, setProvider] = useState<BrowserProvider | null>(null)
   const [signer, setSigner] = useState<JsonRpcSigner | null>(null)
   const [address, setAddress] = useState<string | null>(null)
@@ -46,7 +51,7 @@ export function useWallet() {
   const refreshInFlight = useRef(false)
   const chainDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const disconnect = useCallback(() => {
+  const clearLocalConnection = useCallback(() => {
     setProvider(null)
     setSigner(null)
     setAddress(null)
@@ -58,48 +63,51 @@ export function useWallet() {
    * 从当前注入钱包重新拉取账户与链（不弹窗）。
    * 用于链切换、切账户、页签回到前台等，替代整页 reload。
    */
-  const refreshConnection = useCallback(async () => {
-    if (!window.ethereum || refreshInFlight.current) return
+  const refreshConnection = useCallback(async (): Promise<{ address: string; chainId: number } | null> => {
+    if (refreshInFlight.current) return
     refreshInFlight.current = true
     try {
-      const prov = new BrowserProvider(window.ethereum)
-      const accounts = (await prov.send('eth_accounts', [])) as string[]
-      if (!accounts?.length) {
-        disconnect()
-        return
+      if (!ready || !authenticated) {
+        clearLocalConnection()
+        return null
       }
+
+      const activeWallet = wallets?.[wallets.length - 1]
+      if (!activeWallet) {
+        clearLocalConnection()
+        return null
+      }
+
+      const eip1193 = await activeWallet.getEthereumProvider()
+      const prov = new BrowserProvider(eip1193)
       const sig = await prov.getSigner()
       const network = await prov.getNetwork()
       const addr = await sig.getAddress()
       setProvider(prov)
       setSigner(sig)
       setAddress(addr)
-      setChainId(Number(network.chainId))
+      const cId = Number(network.chainId)
+      setChainId(cId)
+      return { address: addr, chainId: cId }
     } catch {
       /* 保持原状态，避免闪断 */
+      return null
     } finally {
       refreshInFlight.current = false
     }
-  }, [disconnect])
+  }, [ready, authenticated, wallets, clearLocalConnection])
 
   const connect = useCallback(async () => {
     try {
       setIsConnecting(true)
       setError(null)
-      if (!window.ethereum) {
-        throw new Error('Please install MetaMask, OKX Wallet, Bitget Wallet, or Binance Wallet')
-      }
-      const prov = new BrowserProvider(window.ethereum)
-      const accounts = (await prov.send('eth_requestAccounts', [])) as string[]
-      if (!accounts?.length) throw new Error('No account connected')
-      const sig = await prov.getSigner()
-      const network = await prov.getNetwork()
-      const addr = await sig.getAddress()
-      setProvider(prov)
-      setSigner(sig)
-      setAddress(addr)
-      setChainId(Number(network.chainId))
-      return { address: addr, chainId: Number(network.chainId) }
+      if (!ready) throw new Error('Wallet system not ready')
+
+      // Always open Privy UI so the user can choose a wallet app.
+      await login({ loginMethods: ['wallet'], walletChainType: 'ethereum-only' })
+      const info = await refreshConnection()
+      if (!info) throw new Error('No account connected')
+      return info
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Failed to connect'
       setError(msg)
@@ -107,19 +115,30 @@ export function useWallet() {
     } finally {
       setIsConnecting(false)
     }
-  }, [])
+  }, [ready, login, refreshConnection])
+
+  const disconnect = useCallback(async () => {
+    try {
+      await logout()
+    } finally {
+      clearLocalConnection()
+    }
+  }, [logout, clearLocalConnection])
 
   const switchToBNB = useCallback(async () => {
     try {
-      if (!window.ethereum) throw new Error('Wallet not found')
-      await window.ethereum.request({
+      const eip1193 = provider?.provider
+      if (!eip1193?.request) throw new Error('Wallet not connected')
+      await eip1193.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: BNB_CHAIN_PARAMS.chainId }],
       })
       await refreshConnection()
     } catch (e: unknown) {
       try {
-        await window.ethereum.request({
+        const eip1193 = provider?.provider
+        if (!eip1193?.request) throw e
+        await eip1193.request({
           method: 'wallet_addEthereumChain',
           params: [BNB_CHAIN_PARAMS],
         })
@@ -128,7 +147,7 @@ export function useWallet() {
         throw e
       }
     }
-  }, [refreshConnection])
+  }, [provider, refreshConnection])
 
   const getUSDTBalance = useCallback(async (): Promise<bigint> => {
     if (!provider || !address) return 0n
@@ -160,15 +179,12 @@ export function useWallet() {
     [signer, address, chainId]
   )
 
-  /** 首次进入：若钱包已授权过则静默恢复连接，避免空白状态与重复点连接 */
+  /** 首次进入：若 Privy 会话仍在则静默恢复连接 */
   useEffect(() => {
-    if (!window.ethereum) return
     void refreshConnection()
   }, [refreshConnection])
 
   useEffect(() => {
-    if (!window.ethereum) return
-
     const scheduleChainRefresh = () => {
       if (chainDebounceRef.current) clearTimeout(chainDebounceRef.current)
       chainDebounceRef.current = setTimeout(() => {
@@ -176,25 +192,12 @@ export function useWallet() {
         void refreshConnection()
       }, CHAIN_EVENT_DEBOUNCE_MS)
     }
-
-    const handleAccountsChanged = (accounts: unknown) => {
-      const list = accounts as string[]
-      if (!list?.length) {
-        disconnect()
-        return
-      }
-      void refreshConnection()
-    }
-
-    window.ethereum.on('accountsChanged', handleAccountsChanged)
-    window.ethereum.on('chainChanged', scheduleChainRefresh)
+    scheduleChainRefresh()
 
     return () => {
       if (chainDebounceRef.current) clearTimeout(chainDebounceRef.current)
-      window.ethereum?.removeListener('accountsChanged', handleAccountsChanged)
-      window.ethereum?.removeListener('chainChanged', scheduleChainRefresh)
     }
-  }, [disconnect, refreshConnection])
+  }, [wallets, authenticated, refreshConnection])
 
   return {
     address,
@@ -210,15 +213,5 @@ export function useWallet() {
     participatePresale,
     getUSDTBalance,
     refreshConnection,
-  }
-}
-
-declare global {
-  interface Window {
-    ethereum?: {
-      request: (args: { method: string; params?: unknown[] }) => Promise<unknown>
-      on: (event: string, cb: (...args: unknown[]) => void) => void
-      removeListener: (event: string, cb: (...args: unknown[]) => void) => void
-    }
   }
 }
