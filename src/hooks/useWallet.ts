@@ -36,10 +36,48 @@ const USDT_ABI = [
 /** 链切换等事件可能连续触发，合并为一次刷新 */
 const CHAIN_EVENT_DEBOUNCE_MS = 150
 
+const WALLETS_READY_TIMEOUT_MS = 8000
+const WALLETS_READY_POLL_MS = 50
+
+type PrivyConnectedWallet = ReturnType<typeof useWallets>['wallets'][number]
+
+/** Privy wallets 按「最近连接 → 最早连接」排序，取用户刚连上的钱包 */
+function pickActiveWallet(
+  walletList: PrivyConnectedWallet[],
+  preferredAddress?: string | null,
+): PrivyConnectedWallet | null {
+  if (!walletList.length) return null
+
+  if (preferredAddress) {
+    const preferred = walletList.find(
+      (w) => w.address.toLowerCase() === preferredAddress.toLowerCase(),
+    )
+    if (preferred) return preferred
+  }
+
+  const external = walletList.find((w) => w.walletClientType !== 'privy')
+  if (external) return external
+
+  return walletList[0]
+}
+
 export function useWallet() {
   const { ready, authenticated, logout } = usePrivy()
-  const { login } = useLogin()
-  const { wallets } = useWallets()
+  const lastConnectedAddressRef = useRef<string | null>(null)
+  const walletsRef = useRef<PrivyConnectedWallet[]>([])
+  const walletsReadyRef = useRef(false)
+
+  const { login } = useLogin({
+    onComplete: ({ linkedAccount, loginMethod }) => {
+      if (loginMethod === 'siwe' && linkedAccount?.type === 'wallet' && linkedAccount.address) {
+        lastConnectedAddressRef.current = linkedAccount.address
+      }
+    },
+  })
+
+  const { wallets, ready: walletsReady } = useWallets()
+  walletsRef.current = wallets
+  walletsReadyRef.current = walletsReady
 
   const [provider, setProvider] = useState<BrowserProvider | null>(null)
   const [signer, setSigner] = useState<JsonRpcSigner | null>(null)
@@ -52,6 +90,7 @@ export function useWallet() {
   const chainDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const clearLocalConnection = useCallback(() => {
+    lastConnectedAddressRef.current = null
     setProvider(null)
     setSigner(null)
     setAddress(null)
@@ -59,20 +98,30 @@ export function useWallet() {
     setError(null)
   }, [])
 
+  const waitForWalletsReady = useCallback(async () => {
+    const deadline = Date.now() + WALLETS_READY_TIMEOUT_MS
+    while (Date.now() < deadline) {
+      if (walletsReadyRef.current && walletsRef.current.length > 0) return true
+      await new Promise((resolve) => setTimeout(resolve, WALLETS_READY_POLL_MS))
+    }
+    return walletsReadyRef.current && walletsRef.current.length > 0
+  }, [])
+
   /**
    * 从当前注入钱包重新拉取账户与链（不弹窗）。
    * 用于链切换、切账户、页签回到前台等，替代整页 reload。
    */
   const refreshConnection = useCallback(async (): Promise<{ address: string; chainId: number } | null> => {
-    if (refreshInFlight.current) return
+    if (refreshInFlight.current) return null
     refreshInFlight.current = true
     try {
-      if (!ready || !authenticated) {
-        clearLocalConnection()
+      if (!ready || !authenticated || !walletsReadyRef.current) {
+        if (!ready || !authenticated) clearLocalConnection()
         return null
       }
 
-      const activeWallet = wallets?.[wallets.length - 1]
+      const walletList = walletsRef.current
+      const activeWallet = pickActiveWallet(walletList, lastConnectedAddressRef.current)
       if (!activeWallet) {
         clearLocalConnection()
         return null
@@ -80,9 +129,17 @@ export function useWallet() {
 
       const eip1193 = await activeWallet.getEthereumProvider()
       const prov = new BrowserProvider(eip1193)
-      const sig = await prov.getSigner()
+      const sig = await prov.getSigner(activeWallet.address)
       const network = await prov.getNetwork()
-      const addr = await sig.getAddress()
+      const addr = (await sig.getAddress()).toLowerCase()
+      const walletAddr = activeWallet.address.toLowerCase()
+      if (addr !== walletAddr) {
+        setError('Connected wallet mismatch. Please reconnect.')
+        clearLocalConnection()
+        return null
+      }
+
+      lastConnectedAddressRef.current = addr
       setProvider(prov)
       setSigner(sig)
       setAddress(addr)
@@ -95,7 +152,7 @@ export function useWallet() {
     } finally {
       refreshInFlight.current = false
     }
-  }, [ready, authenticated, wallets, clearLocalConnection])
+  }, [ready, authenticated, clearLocalConnection])
 
   const connect = useCallback(async () => {
     try {
@@ -103,8 +160,10 @@ export function useWallet() {
       setError(null)
       if (!ready) throw new Error('Wallet system not ready')
 
+      lastConnectedAddressRef.current = null
       // Always open Privy UI so the user can choose a wallet app.
       await login({ loginMethods: ['wallet'], walletChainType: 'ethereum-only' })
+      await waitForWalletsReady()
       const info = await refreshConnection()
       if (!info) throw new Error('No account connected')
       return info
@@ -115,7 +174,7 @@ export function useWallet() {
     } finally {
       setIsConnecting(false)
     }
-  }, [ready, login, refreshConnection])
+  }, [ready, login, refreshConnection, waitForWalletsReady])
 
   const disconnect = useCallback(async () => {
     try {
@@ -181,10 +240,13 @@ export function useWallet() {
 
   /** 首次进入：若 Privy 会话仍在则静默恢复连接 */
   useEffect(() => {
+    if (!walletsReady) return
     void refreshConnection()
-  }, [refreshConnection])
+  }, [walletsReady, refreshConnection])
 
   useEffect(() => {
+    if (!walletsReady || !authenticated) return
+
     const scheduleChainRefresh = () => {
       if (chainDebounceRef.current) clearTimeout(chainDebounceRef.current)
       chainDebounceRef.current = setTimeout(() => {
@@ -197,7 +259,7 @@ export function useWallet() {
     return () => {
       if (chainDebounceRef.current) clearTimeout(chainDebounceRef.current)
     }
-  }, [wallets, authenticated, refreshConnection])
+  }, [wallets, walletsReady, authenticated, refreshConnection])
 
   return {
     address,
