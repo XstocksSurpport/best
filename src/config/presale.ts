@@ -2,7 +2,7 @@
 export const USDT_BSC_ADDRESS = '0x55d398326f99059fF775485246999027B3197955' as const
 
 /** 预售最低买入金额（USDT） */
-export const PRESALE_MIN_USDT = 288
+export const PRESALE_MIN_USDT = 100
 
 /** 免最低买入门槛的钱包白名单 */
 export const PRESALE_MIN_EXEMPT_WHITELIST = [

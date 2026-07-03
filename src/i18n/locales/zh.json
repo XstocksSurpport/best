@@ -16,7 +16,7 @@
     "receive": "获得代币数量",
     "airdropPoints": "获得空投积分数量",
     "airdropPointsUnit": "分",
-    "minAmount": "最低 288 USDT",
+    "minAmount": "最低 100 USDT",
     "minAmountWhitelist": "输入 USDT 金额（无最低门槛）",
     "connectWallet": "连接钱包参与",
     "participate": "参与预售",
@@ -119,7 +119,7 @@
     "chain": "当前链"
   },
   "errors": {
-    "minAmount": "请输入有效金额（最低 288 USDT）",
+    "minAmount": "请输入有效金额（最低 100 USDT）",
     "minAmountWhitelist": "请输入有效金额",
     "approve": "请先授权 USDT",
     "network": "请连接 BNB 链",
