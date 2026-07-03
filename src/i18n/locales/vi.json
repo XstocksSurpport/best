@@ -16,7 +16,7 @@
     "receive": "Số token nhận được",
     "airdropPoints": "Điểm airdrop nhận được",
     "airdropPointsUnit": "điểm",
-    "minAmount": "Tối thiểu 288 USDT",
+    "minAmount": "Tối thiểu 100 USDT",
     "minAmountWhitelist": "Nhập số USDT (không có mức tối thiểu)",
     "connectWallet": "Kết nối ví để tham gia",
     "participate": "Tham gia bán trước",
@@ -119,7 +119,7 @@
     "chain": "Mạng"
   },
   "errors": {
-    "minAmount": "Nhập số tiền hợp lệ (tối thiểu 288 USDT)",
+    "minAmount": "Nhập số tiền hợp lệ (tối thiểu 100 USDT)",
     "minAmountWhitelist": "Nhập số tiền hợp lệ",
     "approve": "Vui lòng phê duyệt USDT trước",
     "network": "Vui lòng kết nối BNB Chain",

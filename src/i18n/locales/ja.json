@@ -16,7 +16,7 @@
     "receive": "受け取るトークン数",
     "airdropPoints": "エアドロップポイント",
     "airdropPointsUnit": "pt",
-    "minAmount": "最低 288 USDT",
+    "minAmount": "最低 100 USDT",
     "minAmountWhitelist": "USDT 金額を入力（最低額なし）",
     "connectWallet": "ウォレットを接続して参加",
     "participate": "プレセールに参加",
@@ -119,7 +119,7 @@
     "chain": "ネットワーク"
   },
   "errors": {
-    "minAmount": "有効な金額を入力してください（最低 288 USDT）",
+    "minAmount": "有効な金額を入力してください（最低 100 USDT）",
     "minAmountWhitelist": "有効な金額を入力してください",
     "approve": "先にUSDTを承認してください",
     "network": "BNB Chainに接続してください",
